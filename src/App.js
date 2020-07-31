@@ -1,31 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./styles.css";
 
-function App() {
+import api from "./services/api";
+
+export default function App() {
+  const [repositories, setRepositories] = useState([]);
+
+  useEffect(() => {
+    api.get("/repositories").then((response) => {
+      setRepositories(response.data);
+    });
+  }, []);
+
   async function handleAddRepository() {
-    // TODO
+    const response = await api.post("/repositories", {
+      title: `Repository ${Date.now()}`,
+    });
+
+    const data = response.data;
+
+    setRepositories([...repositories, data]);
   }
 
   async function handleRemoveRepository(id) {
-    // TODO
+    await api.delete(`/repositories/${id}`);
+    setRepositories(repositories.filter((repository) => repository.id !== id));
   }
 
   return (
     <div>
-      <ul data-testid="repository-list">
-        <li>
-          Repositório 1
+      <div>
+        <h1> Desafio React.js - GoStack - 11</h1>
+      </div>
 
-          <button onClick={() => handleRemoveRepository(1)}>
-            Remover
-          </button>
-        </li>
-      </ul>
-
-      <button onClick={handleAddRepository}>Adicionar</button>
+      <div>
+        <ul data-testid="repository-list">
+          {repositories.map((repositorie) => (
+            <li key={repositorie.id}>
+              {repositorie.title}
+              <button onClick={() => handleRemoveRepository(repositorie.id)}>
+                Remover
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <button onClick={handleAddRepository}>Adicionar</button>
+      </div>
     </div>
   );
 }
-
-export default App;
