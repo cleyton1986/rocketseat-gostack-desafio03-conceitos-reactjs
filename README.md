@@ -50,7 +50,7 @@
 Agora você deve continuar desenvolvendo a aplicação que irá armazenar repositórios do seu portfólio, que você já desenvolveu o backend no último desafio utilizando o Node.js.
 
 <p align="center">
-  <img  src="assets/reactjs-example.png">
+  <img  src="./assets/reactjs-example.PNG">
 </p>
 
 ## Funcionalidades da aplicação
@@ -75,7 +75,7 @@ Para esse desafio temos os seguintes testes:
 Esse desafio foi entregue na plataforma Skylab - Rocketseat.
 
 <p align="center">
-  <img  src="assets/resultTeste.png">
+  <img  src="./assets/resultTeste.PNG">
 </p>
 
 ## Instalação e execução
