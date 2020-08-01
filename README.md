@@ -50,7 +50,7 @@
 Agora você deve continuar desenvolvendo a aplicação que irá armazenar repositórios do seu portfólio, que você já desenvolveu o backend no último desafio utilizando o Node.js.
 
 <p align="center">
-  <img  src="./assets/reactjs-example.PNG">
+  <img  src="./assets/reactjs-example.gif">
 </p>
 
 ## Funcionalidades da aplicação
